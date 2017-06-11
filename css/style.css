@@ -1,0 +1,79 @@
+body {
+    background: #eee;
+    height: 100%;
+}
+
+#chatarea{
+    min-height: 400px;
+    height: 90%;
+    z-index: -1;
+}
+
+#app{
+    display: none;
+}
+
+#usernameInput{
+    margin-bottom: 15px;
+}
+
+#username{
+    text-align: center;
+    height: 5%;
+}
+
+.chat{
+    height:65%;
+    padding: 0px;
+}
+
+.send {
+    height:10%;
+}
+
+#userspanel{
+    padding: 0px;
+    margin-top: 20px;
+}
+
+#photopanel{
+    overflow-x: scroll;
+ /*   overflow-y: hidden; */
+    white-space: nowrap;
+}
+
+#PicList {
+    display: inline-block;
+}
+
+#picArea {
+    text-align: center;
+}
+
+#picName {
+    text-align: center;
+}
+
+#editBtn{
+    display: none;
+    margin-top: 5%;
+    margin-bottom: 1%;
+}
+
+/*
+#PicCanvas {
+    width: 100%;
+    height: 50%;
+}*/
+
+#PinsList{
+    list-style-type: none;
+}
+
+.center {
+    text-align:center;
+}
+
+#myCanvas {
+    margin-bottom: 30px;
+}
