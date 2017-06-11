@@ -67,9 +67,7 @@ function ClientMsgHandler(data, socket){
         case 'pic':
             removePins();
             PictureHandler(socket, data);
-
             var chosenPic = document.querySelector("#uploadedCanv");
-
             chosenPic.addEventListener("click", function(event) {
                 console.log("chosen picture:" + this.className);
                 photoClickHandler(socket, data, event);
@@ -77,9 +75,10 @@ function ClientMsgHandler(data, socket){
                 });
              break;
         case 'pin':
-             removePins();
+             //removePins();
+              //debugger;
             var chosenPicClass = document.querySelector("#uploadedCanv").className;
-            console.log(chosenPicClass);
+            console.log('document.querySelector("#uploadedCanv").className: ' + chosenPicClass + ', data.photoname:' + data.photoName);
             if(chosenPicClass === data.photoName) { //NIE WCHODZI ZA PIERWSZYM
                 pinHandler(data, socket);
             }

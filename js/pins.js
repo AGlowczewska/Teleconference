@@ -97,6 +97,9 @@ function addPin(myPin, myName, photoName, socket){
 }
 
 function pinHandler(data, socket){
+    console.log("PIN HANDLER");
+
+
     var pins = data.pins;
 
     for( var i=0, l=pins.length; i<l; i++ ) {
@@ -158,7 +161,8 @@ function photoClickHandler(socket, data, event){
 }
 
 function PictureHandler(socket, data){
-    updatePicArea(data.photo, data.photoName);
+
+    console.log("PICTURE HANDLER");
 
     var image = new Image();
     image.src = data.photo;
@@ -197,8 +201,6 @@ function PictureHandler(socket, data){
                 if (children[child].getAttribute('src') != null) photo = children[child].src;
                 if (children[child].getAttribute('src') != null && children[child].getAttribute('class') != null) photoClass = children[child].className;
             }
-        //console.log(photo);
-        //console.log(photoClass);
         removePins();
 
         updatePicArea(photo, photoClass);
@@ -222,6 +224,8 @@ function PictureHandler(socket, data){
         editHandler(data.name, socket, data.photo);
     });
 
+    updatePicArea(data.photo, data.photoName);
+
 }
 
 function updatePicArea(picture, picClass) {
@@ -240,6 +244,9 @@ function updatePicArea(picture, picClass) {
     imageObj.style.maxWidth = '100%';
     imageObj.style.minWidth = '500px';
 
+    var canvas = document.getElementById('uploadedCanv');
+    canvas.className = picClass;
+
     imageObj.onload = function() {
         let wsp1 = imageObj.width/500; let wsp2 = imageObj.height/500;
         let myWidth, myHeight;
@@ -251,8 +258,7 @@ function updatePicArea(picture, picClass) {
             myHeight = imageObj.height/wsp2;
         }
 
-        var canvas = document.getElementById('uploadedCanv');
-        canvas.className = picClass;
+
         var context = canvas.getContext('2d');
         canvas.height = myHeight;
         canvas.width = myWidth;
